@@ -3,13 +3,11 @@ const dotenv = require("dotenv").config()
 const express = require('express')
 const app = express()
 const password = process.env.PASSWORD
-console.log(password);
 const username = process.env.USER
-console.log(username);
 
 const mongoose = require('mongoose');
 /*mongoose.connect('mongodb://localhost:27017/whiteboard',*/
-mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.37oxe.mongodb.net/whiteboard?retryWrites=true&w=majority`,
+mongoose.connect(`mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.37oxe.mongodb.net/whiteboard?retryWrites=true&w=majority`,
     {useNewUrlParser: true, useUnifiedTopology: true});
 
 /*const session = require('express-session')
@@ -20,7 +18,7 @@ app.use(session({
     // cookie: { secure: true }
 }))*/
 
-const bodyParser = require('body-parser')
+let bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
@@ -44,6 +42,7 @@ require("./controllers/quizzes-controller")(app)
 require("./controllers/questions-controller")(app)
 require("./controllers/quiz-attempts-controller")(app)
 require('./controllers/quiz-attempts-controller')(app)
+
 
 
 const port = process.env.PORT || 3000
