@@ -7,7 +7,7 @@ const username = process.env.USER
 
 const mongoose = require('mongoose');
 /*mongoose.connect('mongodb://localhost:27017/whiteboard',*/
-mongoose.connect(`mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.37oxe.mongodb.net/whiteboard?retryWrites=true&w=majority`,
+mongoose.connect(`mongodb+srv://webDevSp01:webDev2021@cluster0.37oxe.mongodb.net/whiteboard?retryWrites=true&w=majority`,
     {useNewUrlParser: true, useUnifiedTopology: true});
 
 /*const session = require('express-session')
