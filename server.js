@@ -46,4 +46,7 @@ require("./controllers/quiz-attempts-controller")(app)
 require('./controllers/quiz-attempts-controller')(app)
 
 
-app.listen(3000)
+const port = process.env.PORT || 3000
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
+});
